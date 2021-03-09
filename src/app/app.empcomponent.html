@@ -1,0 +1,71 @@
+<html>
+
+<body>
+  <form #empForm=ngForm (ngSubmit)=getData(empForm)>
+    <table>
+      <tr>
+        <td>Employee ID:
+        </td>
+        <td>
+          <input required type="text" name="eId" id="eId" [(ngModel)]="emp.eId"  class="form-control" #eId="ngModel" placeHolder="Enter EMPID">
+          <div style="color:red" *ngIf="eId.errors && (eId.dirty ||eId.touched)">
+            <p *ngIf="eId.errors.required"> Employee ID is Mandatory
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Employee Name:
+        </td>
+        <td>
+          <input required type="text" name="eName" id="eName" [(ngModel)]="emp.eName"  class="form-control" #eName="ngModel" placeHolder="Enter EMPName">
+          <div style="color:red" *ngIf="eName.errors && (eName.dirty ||eName.touched)">
+            <p *ngIf="eName.errors.required"> Employee Name is Mandatory
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Employee Salary:
+        </td>
+        <td>
+          <input required type="text" name="eSalary" id="eSalary" [(ngModel)]="emp.eSalary"  class="form-control" #eSalary="ngModel" placeHolder="Enter EMPName">
+          <div style="color:red" *ngIf="eSalary.errors && (eSalary.dirty ||eSalary.touched)">
+            <p *ngIf="eSalary.errors.required"> Employee Salary is Mandatory
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Employee Type:
+        </td>
+        <td>
+          <input required type="radio" name="eType" id="eType" [(ngModel)]="emp.eType"  class="form-control" #eType="ngModel" value="Permanent"/>Permanent
+
+          <input required type="radio" name="eType" id="eType" [(ngModel)]="emp.eType"  class="form-control" #eType="ngModel" value="Contract"/>Contract
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Select Department
+        </td>
+        <td>
+          <select required name="edep" id="edep" [(ngModel)]=emp.eDepartment #depControl=ngModel>
+            <option *ngFor="let dep of department" [value]=dep.dId>{{dep.dName}}</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="submit" value="Add Emp"/>
+        </td>
+      </tr>
+    </table>
+  </form>
+  Emp Details are : {{empForm.value |json}}
+
+</body>
+
+</html>

@@ -1,4 +1,54 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<!-- <emp-app> -->
+
+<html>
+
+<body>
+  <h6>Reactive / Model Driven</h6>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label>
+      First Name:
+    </label>
+    <input type="text" formControlName="first_name"/>
+    <br>
+
+    <label>
+      Last Name:
+    </label>
+    <input type="text" formControlName="last_name"/>
+    <br>
+
+    <label>
+      Phone Num:
+    </label>
+    <input type="text" formControlName="phone"/>
+    <br>
+
+    <label>
+      EMail:
+    </label>
+    <input type="text" formControlName="email"/>
+    <br>
+
+    <fieldset formGroupName="address">
+      <label>
+      Street:
+    </label>
+      <input type="text" formControlName="street"/>
+      <br>
+      <label>
+      City:
+    </label>
+      <input type="text" formControlName="city"/>
+      <br>
+      <label>
+      Pincode:
+    </label>
+      <input type="text" formControlName="zip"/>
+      <br>
+    </fieldset>
+    <button type="submit">Submit</button>
+
+  </form>
+</body>
+
+</html>
